@@ -13,7 +13,7 @@ function isPrimeNumber($n) {
     $m = $n/2;
     for ($i = 2; $i <= $m; $i++) {
         // if can devided by another number (not 1 and itself), not prime number
-        if ($n%$i === 0) {
+        if ($n % $i === 0) {
             return false;
         }
     }
