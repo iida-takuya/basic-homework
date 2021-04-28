@@ -6,5 +6,5 @@ function factorialOfNumber ($n) {
     return 1;
 }
 
-echo "10! = ".factorialOfNumber (10)."<br>";
+echo 'The sum of odd numbers from 0 to 50 = ' . $sum . '<br/>';
 ?>
