@@ -6,5 +6,5 @@ function factorialOfNumber ($n) {
     return 1;
 }
 
-echo '10! = ' .factorialOfNumber (10). '<br/>';
+echo '10! = ' . factorialOfNumber (10) . '<br/>';
 ?>
