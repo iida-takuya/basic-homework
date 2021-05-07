@@ -53,9 +53,9 @@ for ($i = 0; $i < $n; $i++) {
     }
 }
 
-$avg = $sum/$n;
-$avg2 = $sum2/$n;
-$avg3 = $sum3/$n;
+$avg = $sum / $n;
+$avg2 = $sum2 / $n;
+$avg3 = $sum3 / $n;
 
 echo $n;
 echo "a:" . $avg . "," . $sum . "," . $min . "," . $max . "<br/>";
