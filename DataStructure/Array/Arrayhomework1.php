@@ -1,31 +1,64 @@
 <?php
-$a = array(5, 12, 17, 9, 3);
-$b = array(13, 4, 8, 14, 1);
-$c = array(9, 5, 3, 7, 21);
+$a = [5, 12, 17, 9, 3];
+$b = [13, 4, 8, 14, 1];
+$c = [9, 5, 3, 7, 21];
 
-// Sum
-$sum1 = array_sum($a);
-$sum2 = array_sum($b);
-$sum3 = array_sum($c);
+$min = $a[0];
+$max = $a[0];
+$sum = 0;
+$avg = 0;
 
-// Average
-$average1 = $sum1 / count($a);
-$average2 = $sum2 / count($b);
-$average3 = $sum3 / count($c);
+$min2 = $b[0];
+$max2 = $b[0];
+$sum2 = 0;
+$avg2 = 0;
 
-// Min
-$min1 = min($a);
-$min2 = min($b);
-$min3 = min($c);
+$min3 = $c[0];
+$max3 = $c[0];
+$sum3 = 0;
+$avg3 = 0;
 
-// Max
-$max1 = max($a);
-$max2 = max($b);
-$max3 = max($c);
+$n = count($a);
 
-echo "a:Average=" . $average1 . ", Sum=" . $sum1 . ",  Min=" . $min1 . ",  Max=" . $max1 . "<br/>";
-echo "b:Average=" . $average2 . ", Sum=" . $sum2 . ",  Min=" . $min2 . ",  Max=" . $max2 . "<br/>";
-echo "c:Average=" . $average3 . ", Sum=" . $sum3 . ",  Min=" . $min3 . ",  Max=" . $max3;
+for ($i = 0; $i < $n; $i++) {
+    // add element so tum
+    $sum += $a[$i];
+    $sum2 += $b[$i];
+    $sum3 += $c[$i];
+
+    // check min element
+    if ($min > $a[$i]) {
+        $min = $a[$i];
+    }
+
+    if ($min2 > $b[$i]) {
+        $min2 = $b[$i];
+    }
+
+    if ($min3 > $c[$i]) {
+        $min3 = $c[$i];
+    }
+
+    // check max element
+    if ($max < $a[$i]) {
+        $max = $a[$i];
+    }
+
+    if ($max2 < $b[$i]) {
+        $max2 = $b[$i];
+    }
+
+    if ($max3 < $c[$i]) {
+        $max3 = $c[$i];
+    }
+}
+
+$avg = $sum/$n;
+$avg2 = $sum2/$n;
+$avg3 = $sum3/$n;
+
+echo $n;
+echo "a:" . $avg . "," . $sum . "," . $min . "," . $max . "<br/>";
+echo "b:" . $avg2 . "," . $sum2 . "," . $min2 . "," . $max2 . "<br/>";
+echo "c:" . $avg3 . "," . $sum3 . "," . $min3 . "," . $max3;
 ?>
-
-

@@ -1,27 +1,33 @@
 <?php
-$a = array(5, 12, 17, 9, 13);
-$b = array(13, 4, 8, 14, 1);
-$c = array(9, 5, 3, 17, 21);
-$arrays = [$a, $b, $c];
+// Define 2-dimentional array
+$a = [[5, 12, 17, 9, 13], [13, 4, 8, 14, 1], [9, 5, 3, 17, 21]];
+// Define $min, $max is first element of the array
+$min = $a[0][0];
+$max = $a[0][0];
+$sum = 0;
+$avg = 0;
+$n = count($a[0]) + count($a[1]) + count($a[2]);
 
-// Sum
-$sum = array_sum($a) + array_sum($b) + array_sum($c);
+// Loop through 2-dimention array
+foreach ($a as $row) {
+    // Loop through each row
+    foreach ($row as $elm) {
+        // add element so tum
+        $sum += $elm;
 
-// Average
-$average = $sum / (count($a) + count($b) + count($c));
+        // check min element
+        if ($min > $elm) {
+            $min = $elm;
+        }
 
-// Min
-$min = array_map(function($row) {
-    return min($row);
-}, $arrays);
+        // check max element
+        if ($max < $elm) {
+            $max = $elm;
+        }
+    }
+}
 
-// Max
-$max = array_map(function($row) {
-    return max($row);
-}, $arrays);
+$avg = $sum/$n;
 
-echo "Average = " . (int)$average . "<br/>";
-echo "Sum = " . $sum . "<br/>";
-echo "Min = " . min($min) . "<br/>";
-echo "Max = " . max($max);
+echo (int)$avg . "," . $sum . "," . $min . "," . $max;
 ?>
