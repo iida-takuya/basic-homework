@@ -6,28 +6,29 @@ $min = $a[0][0];
 $max = $a[0][0];
 $sum = 0;
 $avg = 0;
-$n = count($a[0]) + count($a[1]) + count($a[2]);
+$n = 0;
 
 // Loop through 2-dimention array
 foreach ($a as $row) {
-    // Loop through each row
-    foreach ($row as $elm) {
-        // add element so tum
-        $sum += $elm;
+    $n += count($row);
+        // Loop through each row
+        foreach ($row as $elm) {
+            // add element so tum
+            $sum += $elm;
 
-        // check min element
-        if ($min > $elm) {
-            $min = $elm;
-        }
+            // check min element
+            if ($min > $elm) {
+                $min = $elm;
+            }
 
-        // check max element
-        if ($max < $elm) {
-            $max = $elm;
+            // check max element
+            if ($max < $elm) {
+                $max = $elm;
+            }
         }
-    }
 }
 
-$avg = $sum/$n;
+$avg = $sum / $n;
 
 echo (int)$avg . "," . $sum . "," . $min . "," . $max;
 ?>
