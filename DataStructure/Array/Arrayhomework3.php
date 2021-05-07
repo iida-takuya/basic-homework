@@ -11,24 +11,24 @@ $n = 0;
 // Loop through 2-dimention array
 foreach ($a as $row) {
     $n += count($row);
-        // Loop through each row
-        foreach ($row as $elm) {
-            // add element so tum
-            $sum += $elm;
+    // Loop through each row
+    foreach ($row as $elm) {
+        // add element so tum
+        $sum += $elm;
 
-            // check min element
-            if ($min > $elm) {
-                $min = $elm;
-            }
-
-            // check max element
-            if ($max < $elm) {
-                $max = $elm;
-            }
+        // check min element
+        if ($min > $elm) {
+            $min = $elm;
         }
+
+        // check max element
+        if ($max < $elm) {
+            $max = $elm;
+        }
+    }
 }
 
 $avg = $sum / $n;
 
-echo (int)$avg . "," . $sum . "," . $min . "," . $max;
+echo $avg . "," . $sum . "," . $min . "," . $max;
 ?>
