@@ -3,15 +3,18 @@ class Node {
     /** @var int */
     private $data;
     /** @var Node */ 
-    private $next; 
+    private $next;
+
+    private $before;
 
     /**
     * Constructor Node class
     */
-    public function __construct($data = 0, $next = null)  // default value of $data is 0, $next is null
+    public function __construct($data = 0, $next = null, $before = null)  // default value of $data is 0, $next is null
     {
         $this->data = $data; // initial $data
         $this->next = $next;  // initial $next
+        $this->before = $before;
     }
 
     /**
@@ -49,23 +52,17 @@ class Node {
     {
         $this->next = $next;
     }
-    
 
 
-    public function insertToHead($node)
+    public function getBefore()
     {
-        $node->setNext($this->head);
-        $this->head = $node;
+        return $this->before;
     }
 
-    /**
-    * return head
-    */
-    public function getHead()
+    public function setBefore($before)
     {
-        return $this->head;
+        $this->before = $before;
     }
-
 
 
 } 
@@ -92,42 +89,24 @@ class LinkedList {
             }
             // insert new node to at last node
             $last->setNext($newNode);
+            $newNode->setBefore($last);
         }
     }
 
-    /**
-    * traversal linked list
-    */
-    public function visit()
-    {
-        $currNode = $this->head; // start from head node
-
-        echo "Linked List: ";
-
-        while ($currNode != null) {
-            echo $currNode->getData() . " ";
-            $currNode = $currNode->getNext();
-        }
-    }
-    /**
-    * traversal linked list
-    */
     public function reverse()
     {
-        $preNode = null;
         $currNode = $this->head;
-        $nextNode = null;
 
         echo "Linked List: ";
 
-        while ($currNode != null) { //stop when node is NULL
-            $nextNode = $currNode->getNext(); 
-            $currNode->setNext($preNode);
-            $preNode = $currNode;
-            $currNode = $nextNode;
+        while ($currNode->getNext() !== null) {
+            $currNode = $currNode->getNext();
         }
-        $this->head =$preNode;
-        echo $this->visit();
+
+        while ($currNode !== null) {
+            echo $currNode->getData() . " ";
+            $currNode = $currNode->getBefore();
+        }
     }
 }
 
