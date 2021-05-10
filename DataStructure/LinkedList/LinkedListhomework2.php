@@ -114,9 +114,9 @@ class LinkedList {
     */
     public function reverse()
     {
-		$preNode = null;
+        $preNode = null;
         $currNode = $this->head;
-		$nextNode = null;
+        $nextNode = null;
 
         echo "Linked List: ";
 
@@ -126,7 +126,7 @@ class LinkedList {
             $preNode = $currNode;
             $currNode = $nextNode;
         }
-		$this->head =$preNode;
+        $this->head =$preNode;
         echo $this->visit();
     }
 }

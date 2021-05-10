@@ -92,58 +92,38 @@ class LinkedList {
         }
     }
 
-
-    /**
-    * Merges two lists with headers as h1 and h2.
-    * It assumes that h1's data is smaller than
-    * or equal to h2's data.
-    * @param LinkedList
-    */
     public function mergeUtil($h1, $h2)
     {
-	    // if only one node in first list
-	    // simply point its head to second list
-	    if ($h1->head->getNext() == null) {
-		    $h1->head->setNext($h2);
-		    return $h1;
-	    }
+        if ($h1->head->getNext() == null) {
+            $h1->head->setNext($h2);
+            return $h1;
+        }
 
-	    // Initialize current and next pointers of
-	    // both lists
-	    $curr1 = $h1->head;
-	    $next1 = $h1->head->getNext();
-	    $curr2 = $h2->head;
-	    $next2 = $h2->head->getNext();
+        $curr1 = $h1->head;
+        $next1 = $h1->head->getNext();
+        $curr2 = $h2->head;
+        $next2 = $h2->head->getNext();
 
-	    while ($next1 != null && $curr2 != null) {
-		    // if curr2 lies in between curr1 and next1
-		    // then do curr1->curr2->next1
-		    if (($curr2->getData()) >= ($curr1->getData()) && ($curr2->getData()) <= ($next1->getData())) {
-			    $next2 = $curr2->getNext();
-			    $curr1->setNext($curr2);
-			    $curr2->setNext($next1);
-
-			    // now let curr1 and curr2 to point
-			    // to their immediate next pointers
-			    $curr1 = $curr2;
-			    $curr2 = $next2;
-		    }
-		    else {
-			    // if more nodes in first list
-			    if ($next1->getNext() != null) {
-				    $next1 = $next1->getNext();
-				    $curr1 = $curr1->getNext();
-			    }
-
-			    // else point the last node of first list
-			    // to the remaining nodes of second list
-			    else {
-				    $next1->setNext($curr2);
-				    return $h1;
-			    }
-		    }
-	    }
-	    return $h1;
+        while ($next1 != null && $curr2 != null) {
+            if (($curr2->getData()) >= ($curr1->getData()) && ($curr2->getData()) <= ($next1->getData())) {
+                $next2 = $curr2->getNext();
+                $curr1->setNext($curr2);
+                $curr2->setNext($next1);
+                $curr1 = $curr2;
+                $curr2 = $next2;
+            }
+            else {
+                if ($next1->getNext() != null) {
+                    $next1 = $next1->getNext();
+                    $curr1 = $curr1->getNext();
+                }
+                else {
+                    $next1->setNext($curr2);
+                    return $h1;
+                }
+            }
+        }
+        return $h1;
     }
 }
 
@@ -161,4 +141,3 @@ $list2 = $list->mergeUtil($list, $list1);
 $list2->visit();
 
 ?>
-
