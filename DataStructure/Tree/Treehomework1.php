@@ -186,25 +186,25 @@ class SearchBinaryTree extends BinaryTree {
 
             while (true) {
 
-                    if ($data < $current->getData()) {
+                if ($data < $current->getData()) {
                     
-                        if ($current->getLeft()) {
-                            $current = $current->getLeft();
-                        } else {
-                            $current->setLeft(new Node($data));
-                            break; 
-                        }
-                    } else if ($data > $current->getData()){
-                        if ($current->getRight()) {
-                            $current = $current->getRight();
-                        } else {
-                            $current->setRight(new Node($data));
-                            break; 
-                        }
-                    
+                    if ($current->getLeft()) {
+                        $current = $current->getLeft();
                     } else {
-                        break;
+                        $current->setLeft(new Node($data));
+                        break; 
                     }
+                } else if ($data > $current->getData()) {
+
+                    if ($current->getRight()) {
+                        $current = $current->getRight();
+                    } else {
+                        $current->setRight(new Node($data));
+                        break; 
+                    }    
+                } else {
+                    break;
+                }
             }
         }
     }
@@ -227,6 +227,7 @@ class SearchBinaryTree extends BinaryTree {
     
     public function searchMin() {
         $node = $this->root;
+        $this->root == null;
 
         while ($node) {
             if ($node->getLeft() == null) {
@@ -242,6 +243,7 @@ class SearchBinaryTree extends BinaryTree {
 
     public function searchMax() {
         $node = $this->root;
+        $this->root == null;
 
         while ($node) {
             if ($node->getRight() == null) {
