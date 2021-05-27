@@ -234,14 +234,12 @@ class SearchBinaryTree extends BinaryTree {
 
         while ($node) {
             if ($node->getLeft() == null) {
-                $min = $node->getData();
-                break;
+                echo "MIN = " . $node->getData() . "</br>";
+                return;
             } else { 
                 $node = $node->getLeft();
             }
         }
-        echo "MIN = " . $min . "</br>";
-        return;
     }
 
     public function searchMax() {
@@ -253,16 +251,14 @@ class SearchBinaryTree extends BinaryTree {
 
         while ($node) {
             if ($node->getRight() == null) {
-                $max = $node->getData();
-                break;
+                echo "MAX = " . $node->getData();
+                return;
             } else {
                 $node = $node->getRight();
             }
         }
-        echo "MAX = " . $max;
-        return;
     }
-}  
+}
 
 
 $arr = array(10, 5, 19, 1 ,6, 17);
