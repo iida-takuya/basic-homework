@@ -227,7 +227,10 @@ class SearchBinaryTree extends BinaryTree {
     
     public function searchMin() {
         $node = $this->root;
-        $this->root == null;
+
+        if ($this->root == null) {
+            return;
+        }
 
         while ($node) {
             if ($node->getLeft() == null) {
@@ -243,7 +246,10 @@ class SearchBinaryTree extends BinaryTree {
 
     public function searchMax() {
         $node = $this->root;
-        $this->root == null;
+
+        if ($this->root == null) {
+            return;
+        }
 
         while ($node) {
             if ($node->getRight() == null) {
