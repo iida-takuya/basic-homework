@@ -1,44 +1,61 @@
 <?php
+
+$array1 = [11, 7, 1];
+$array2 = [4, 6, 2];
+$k = 3;
+
+quicksort($array1, 0, count($array1) - 1);
+quicksort($array2, 0, count($array2) - 1);
+findSmallestPair($array1, $array2, $k);
+
+function findSmallestPair($array1, $array2, $k) {
+    if ($k > count($array1)*count($array2)) {
+        echo "k pairs does not exist";
+        return;        
+    }
+
+    $index2 = array_fill(0, count($array1), 0);
+
+    while ($k > 0) {
+        $minSum = PHP_INT_MAX;
+        $minIndex = 0;
+
+        foreach ($array1 as $i => $value1) {
+            if ($index2[$i] < count($array2) && ($value1 + $array2[$index2[$i]] < $minSum)) {
+                $minIndex = $i;
+                $minSum = $value1 + $array2[$index2[$i]];
+            }
+        }
+        echo "[{$array1[$minIndex]}, {$array2[$index2[$minIndex]]}] ";
+        $index2[$minIndex]++;
+        $k--;
+    }
+}
+
 function partition(&$array, $left, $right) {
-    $pivot = $array[$right];
-    $i = $left -1;
-    for ($j = $left; $j < $right; $j++) {
-        if (($array[$j] < $pivot)){
-            $i++;
+    $pivot = $array[($right + $left) / 2];
+    $i = $left;
+    $j = $right;
+    while ($i <= $j) {
+        while ($array[$i] < $pivot) $i++;
+        while ($array[$j] > $pivot) $j--;
+        
+        if ($i <= $j) {
             $temp = $array[$i];
             $array[$i] = $array[$j];
             $array[$j] = $temp;
+            $i++;
+            $j--;
         }
     }
-    $temp = $array[$i + 1];
-    $array[$i + 1] = $array[$right];
-    $array[$right] = $temp;
-    return ($i + 1);
+    return $i;
 }
-
+ 
 function quicksort(&$array, $left, $right) {
-    if ($left < $right) {
+    if($left < $right) {
         $pivotIndex = partition($array, $left, $right);
         quicksort($array,$left,$pivotIndex -1 );
         quicksort($array,$pivotIndex, $right);
     }
 }
-
-$arr1 = [11, 7, 1];
-$arr2 = [4, 6, 2];
-$result = [];
-
-$k = 3;
-
-quicksort($arr1, 0, count($arr1) - 1);
-quicksort($arr2, 0, count($arr2) - 1);
-
-$firstA = $arr1[0];
-
-for ($i = 0; $i < 3; $i++) {
-    $pair = [$firstA, $arr2[$i]];
-    array_push($result, $pair);
-}
-
-print_r($result);
 ?>
