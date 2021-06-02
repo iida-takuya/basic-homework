@@ -1,7 +1,7 @@
 SELECT
     working_area,
-    avg(commission),
-    count(agent_name)
+    avg(commission) AS AVG_COMMISSION
+    count(agent_name) AS COUNT_AGENT_NAME
 FROM
     agents
 HAVING
@@ -9,4 +9,5 @@ HAVING
 GROUP BY
     working_area
 ORDER BY
-    2,3 DESC;
+    AVG_COMMISSION,COUNT_AGENT_NAME DESC;
+
