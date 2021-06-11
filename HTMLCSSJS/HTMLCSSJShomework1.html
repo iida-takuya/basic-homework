@@ -1,26 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
-    
-    <head>
+    <head><link rel="stylesheet" href="normalize.css">
         <meta charset="utf-8">
         <title>My web page</title>
-        <link rel="stylesheet", href="HTMLCSSJShomework2.css" />
+        <link rel="stylesheet" href="HTMLCSSJShomework1.css" />
         <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-        <script src="HTMLCSSJShomework2.js"></script>
-    </head>
 
+        <script src="HTMLCSSJShomework1.js"></script>
+    </head>
     <body>
-        <header>
-            <div><h2>The logo</h2></div>
-            <div id="slogan" class="slogan">The header slogan</div>
+        <header> 
+            <div>
+                <h4>The logo</h4>
+            </div>
+            <div>
+                <h2 class="slogan">The header slogan</h2>
+            </div>
             <div id="form">
                 <ul>
                     <li>Hi <span>Guest</span></li>
                     <li><a href="javascript:void(0)" onclick="showLoginForm()">Login</a></li>
                 </ul>
+
                 <form id="login">
                     <input type="text" name="username" placeholder="User name" />
                     <input type="password" name="password" placeholder="Password"/>
+                    <i class="material-icons" id="passwordIcon" onclick="hidePassword()">remove_red_eye</i>
                     <label><input type="checkbox" name="rememberUsername" />Remember user name </label>
                     <button type="submit" name="Login">Login</button>
                 </form>
@@ -44,7 +49,6 @@
             <div id="main-content">
                 <h3> The main content go here</h3>
             </div>
-
             <div id="sidebar">
                 <h3> Sidebar </h3>
                 <ul>
@@ -59,19 +63,17 @@
         </div>
 
         <footer>
-
             <ol>
                 <li>Extra info 1</li>
                 <li>Extra info 1</li>
             </ol>
-
-            <h3> The footer </h3>
-
-            <div id="scroll">
-                <a href="#"> <i class="material-icons">arrow_drop_up</i></a>
+            <h3> The footer</h3>
+            <div id="scroll"> 
+                <a href="javascript:void(0)" onclick="scrollToTop()"> 
+                    <i class="material-icons">arrow_drop_up</i>
+                </a>
             </div>
-
         </footer>
-
     </body>
 </html>
+
