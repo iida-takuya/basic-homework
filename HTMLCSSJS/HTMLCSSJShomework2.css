@@ -4,24 +4,26 @@ header {
     grid-template-columns: 20% 50% 30%;
     justify-content: center;
     align-content: center;
+
     background-color: #5F524F;
     padding: 20px;
 }
-
 
 html, body {
     margin: 0;
     padding: 0;
 }
 
-header div:first-child {
+#logo {
     border: 1px solid #fff;
     padding: 10px;
     width: 50%;
 }
 
-
 #slogan {
+    position: absolute;
+    top: 50px;
+    left: 400px;
     color: #fff;
     font-weight: normal;
     font-size: 1.5em;
@@ -33,7 +35,7 @@ header div:first-child {
     padding-top: 0.1em;
 }
   
-#slogan::before, .slogan::after {
+  #slogan::before, #slogan::after {
     content: "§";
     display: inline-block;
     -webkit-transform: rotate(90deg);
@@ -45,17 +47,10 @@ header div:first-child {
     font-size: 1em;
 }
 
-input {
-    font-family: Poppins-Medium;
-    color: #666666;
-    height: 40px;
-    outline: none;
-    border: none;
-    padding: 0 30px 0 30px;
-}
-
 #form {
-    text-align: right;
+    position: absolute;
+    top: 0;
+    right: 50px;
 }
 
 #form ul {
@@ -66,12 +61,12 @@ input {
     display: inline-block;
     padding: 0 15px;
     color: #fff;
-    letter-spacing: 1px;    
+    letter-spacing: 1px;
 }
 
 #form li span {
-    font-weight: 700;
     color: #080;
+    font-weight: 700;
 }
 
 #form a {
@@ -94,13 +89,19 @@ input {
     margin: 0 auto;
     display: block;
     width: 50%;
+    height: 40px;
     background: #e6e6e6;
-    border-radius: 10px;
+    border: solid #e6e6e6;
+    border-radius: 5px;
     margin-bottom: 15px;
 }
 
+#passwordIcon {
+    cursor: pointer;
+}
+
 #login button {
-    font-family: Montserrat-Bold;
+    font-family: "Montserrat-Bold";
     font-size: 15px;
     color: #fff;
     text-transform: uppercase;
@@ -108,7 +109,7 @@ input {
     height: 50px;
     border-radius: 25px;
     background: #57b846;
-    margin-right: 50px;
+    margin-left: 50px;
     margin-top: 20px;
     border: none;
 }
@@ -131,9 +132,21 @@ input {
     left: -20px;
 }
 
+#login  i {
+    position: absolute;
+    top: 95px;
+    right: 85px;
+    color: grey;
+}
+
 #search {
-    position: relative;
-    margin-top: 30px;
+    position: absolute;
+    right: 0px;
+    margin-top: 10px;
+}
+
+#search input {
+    height: 40px;
 }
 
 #search i {
@@ -142,11 +155,6 @@ input {
     top: 10px;
     color: green;
 }
-
-input[type=text]{
-    width:200px;
-    height:35px;
-    }
 
 nav {
     border: 1px solid #ccc;
@@ -169,12 +177,6 @@ nav ul li {
     grid-column-gap: 10px;
     min-height: 500px;
 }
-
-#main-content, #sidebar {
-    padding: 5px 20px;
-    border: 1px solid;
-}
-
 table {
     font-family: arial, sans-serif;
     border-collapse: collapse;
@@ -189,6 +191,11 @@ td, th {
 
 tr:nth-child(even) {
     background-color: #dddddd;
+}
+
+#main-content, #sidebar {
+    padding: 5px 20px;
+    border: 1px solid;
 }
 
 #sidebar ul li {
@@ -211,16 +218,12 @@ header, footer {
 #scroll {
     width: 40px;
     height: 40px;
-
     position: fixed;
     right: 30px;
     bottom: 30px;
-
     background-color: rgba(2, 129, 1, 0.85);
     text-align: center;
 }
 
 #scroll a { color: #fff; }
-#scroll i { margin-top: 8px; }
-
-
+#scroll i {margin-top: 8px;}
